@@ -22,8 +22,9 @@ Bluetooth Attribute Protocol
     [Request in Frame: 726]
 ```
 
-0x002d SDP: RFCOMM Delta2->Phone
-0x002a SDP: UDP Phone -> Delta2
+In my traces the following handles were used:
+* 0x002d SDP: RFCOMM Delta2->Phone
+* 0x002a SDP: UDP Phone -> Delta2
 
 
 ### RFCOMM status
@@ -35,6 +36,10 @@ I tried decoding this beacon in `states` and `states2` but haven't had much succ
 
 Every action on the Delta 2 sends a UDP packet. In rare cases there is up to 3 seconds delay from pressing a button to sending the packet.
 I started labelling sample packets in commands. I have gotten some of them wrong, focussing on the data points I care about most rn.
+
+## Demo
+
+The `experimental/main.py` script connects to the Delta 2 and turns on the AC output and receives (not yet parses) the status data.
 
 ## Why?
 
