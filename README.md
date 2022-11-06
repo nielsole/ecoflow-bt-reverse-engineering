@@ -44,8 +44,28 @@ I tried decoding this beacon in `states` and `states2` but haven't had much succ
 
 ### UDP Commands
 
-Every action on the Delta 2 sends a UDP packet. In rare cases there is up to 3 seconds delay from pressing a button to sending the packet.
+Every action on the Delta 2 sends a UDP packet.
 I started labelling sample packets in commands. I have gotten some of them wrong, focussing on the data points I care about most rn.
 
 ## Contributing
 
+If you want to reverse engineer the connection from your Android phone to your bluetooth device, use the following process:
+
+Prerequisites:
+* An android phone with the app installed
+* A way to record your screen
+* A computer ideally with linux with wireshark and adb installed
+
+* Connect phone via USB with Debugging turned on
+* Enable HCI snooping
+* (re-)enable Bluetooth
+* Film your actions e.g. with a second phone or screen recording
+* Open the app and do the thing you want to investigate
+* Optionally: turn off blueooth and HCI snooping
+* Retrieve the Blueooth snoop log
+    * Either it is on the sd_card (wasn't for me), then do `adb pull ...` from the device
+    * retrieve it via `adb bugreport`
+* open the file in wireshark
+* Try to establish a match between the video and the wireshark data. Tip: Jot down the times and their offsets on a piece of paper together with the performed action.
+
+In rare cases the app is stuck for up to 3 seconds after pressing a button before sending the packet, introducing an offset.
