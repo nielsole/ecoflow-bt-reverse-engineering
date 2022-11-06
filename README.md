@@ -3,7 +3,17 @@
 Reverse engineering of Delta 2 Bluetooth interface.
 No affiliation with Ecoflow.
 
-I want to programatically control my Delta 2.
+What currently works:
+* Turn on/off USB, AC and 12VDC output
+
+## Demo
+
+The `experimental/main.py` script connects to the Delta 2 and let's you toggle the outputs.
+Follow the installation instructions for pybluez.
+The script must run as root.
+This is experimental.
+This might brick your device.
+I use linux, no other OS is tested, but it might just work for you.
 
 ## Overview
 
@@ -37,12 +47,5 @@ I tried decoding this beacon in `states` and `states2` but haven't had much succ
 Every action on the Delta 2 sends a UDP packet. In rare cases there is up to 3 seconds delay from pressing a button to sending the packet.
 I started labelling sample packets in commands. I have gotten some of them wrong, focussing on the data points I care about most rn.
 
-## Demo
+## Contributing
 
-The `experimental/main.py` script connects to the Delta 2 and turns on the AC output and receives (not yet parses) the status data.
-
-## Why?
-
-* I want to programatically control charging speed and AC output state
-* I don't want to be dependent on ecoflows closed source app
-* I don't want to use the internet-dependent ecoflow-dependent API
