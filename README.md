@@ -4,7 +4,10 @@ Reverse engineering of Delta 2 Bluetooth interface.
 No affiliation with Ecoflow.
 
 What currently works:
-* Turn on/off USB, AC and 12VDC output
+* Turn on/off:
+  * USB
+  * AC
+  * 12VDC output
 
 ## Demo
 
@@ -56,6 +59,7 @@ Prerequisites:
 * A way to record your screen
 * A computer ideally with linux with wireshark and adb installed
 
+Process:
 * Connect phone via USB with Debugging turned on
 * Enable HCI snooping
 * (re-)enable Bluetooth
